@@ -6,27 +6,26 @@ import (
 	"net/http"
 )
 
-// 1. Kita siapkan struktur datanya (Mirip struct di C++)
 type SocialLink struct {
 	Platform string
 	URL      string
-	Icon     string // Kita pakai emoji dulu biar simpel
+	Icon     string 
 }
 
 type UserProfile struct {
 	Name     string
 	Bio      string
 	ImageURL string
-	Links    []SocialLink // Array of links (One-to-Many)
+	Links    []SocialLink 
 }
 
-// 2. Handler untuk halaman utama
+
 func homeHandler(w http.ResponseWriter, r *http.Request) {
-	// Isi data profil kamu di sini
+	
 	data := UserProfile{
 		Name:     "M. Nabil Fabian",
 		Bio:      "IT Student | Gym Enthusiast",
-		ImageURL: "https://avatars.githubusercontent.com/u/240920051?s=400&u=2d9a60ce5f27ccf9c90365d476e17fdcc7a16ef0&v=4", // Ganti link foto kamu nanti
+		ImageURL: "https://avatars.githubusercontent.com/u/240920051?s=400&u=2d9a60ce5f27ccf9c90365d476e17fdcc7a16ef0&v=4", 
 		Links: []SocialLink{
 			{Platform: "GitHub", URL: "https://github.com/blowmamain-spec", Icon: "💻"},
 			{Platform: "LinkedIn", URL: "https://www.linkedin.com/in/m-nabil-fabian", Icon: "g"},
@@ -36,14 +35,14 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 		},
 	}
 
-	// Parsing file HTML
+	
 	tmpl, err := template.ParseFiles("index.html")
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
 		return
 	}
 
-	// Gabungkan data Go ke dalam HTML
+	
 	err = tmpl.Execute(w, data)
 	if err != nil {
 		http.Error(w, err.Error(), http.StatusInternalServerError)
