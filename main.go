@@ -31,7 +31,7 @@ func homeHandler(w http.ResponseWriter, r *http.Request) {
 			{Platform: "LinkedIn", URL: "https://www.linkedin.com/in/m-nabil-fabian", Icon: "g"},
 			{Platform: "Instagram", URL: "https://www.instagram.com/nblfbiann", Icon: "📸"},
 			{Platform: "Email", URL: "mail to: blowmamain@gmail.com", Icon: "📧"},
-			{Platform: "WhatsApp", URL: "https://wa.me/6281262362940", Icon: "📞"},
+			{Platform: "WhatsApp", URL: "https://wa.me/-", Icon: "📞"},
 		},
 	}
 
